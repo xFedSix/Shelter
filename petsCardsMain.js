@@ -132,6 +132,7 @@ window.addEventListener("resize", () => {
     addCardsLeft();
     addCardsRight();
   }
+  console.log(pageSize);
 });
 let pageSize;
 const getPageSize = () => {
@@ -145,6 +146,7 @@ const getPageSize = () => {
     pageSize = "mobile";
   }
 };
+
 getPageSize();
 
 const sliderActive = document.getElementById("pet_cards-active");
@@ -395,6 +397,7 @@ const deletePets = () => {
     sliderRight.removeChild(sliderRight.firstChild);
   }
 };
+
 const modalWindow = document.querySelector(".modal_window");
 const modalCloseBtn = document.querySelector(".modal_close_btn");
 let coverBlackOut = document.querySelector(".cover");

@@ -26,9 +26,7 @@ html {
   right: 0;
   z-index: 1;
 }
-.container {
-  overflow: hidden;
-}
+
 header {
   display: flex;
   align-items: center;
@@ -1094,7 +1092,7 @@ letter-spacing: 0.059em;
     .menu_btn {
       display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 37px;
     height: 24px;
     padding: 5px 4px 0px 3px;

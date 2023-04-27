@@ -150,14 +150,13 @@ const pageBtnLast = document.querySelector(".pets_page-btn--last");
 const pageBtnFirst = document.querySelector(".pets_page-btn--first");
 const petsPage = document.querySelector(".pets_page");
 let pageNum = +petsPage.innerHTML;
-const pageBtnLast2 = pageBtnLast;
 pageBtnNext.addEventListener("click", () => {
   pageNum++;
   petsPage.textContent = pageNum;
   deletePets();
   addPets();
   if (pageNum === lastPage) {
-    pageBtnLast2.setAttribute("disabled", "disabled");
+    pageBtnLast.setAttribute("disabled", "disabled");
     pageBtnNext.setAttribute("disabled", "disabled");
   }
   pageBtnFirst.removeAttribute("disabled");
@@ -172,16 +171,16 @@ pageBtnPrev.addEventListener("click", () => {
     pageBtnFirst.setAttribute("disabled", "disabled");
     pageBtnPrev.setAttribute("disabled", "disabled");
   }
-  pageBtnLast2.removeAttribute("disabled");
+  pageBtnLast.removeAttribute("disabled");
   pageBtnNext.removeAttribute("disabled");
 });
 
-pageBtnLast2.addEventListener("click", () => {
+pageBtnLast.addEventListener("click", () => {
   pageNum = lastPage;
   petsPage.textContent = lastPage;
   deletePets();
   addPets();
-  pageBtnLast2.setAttribute("disabled", "disabled");
+  pageBtnLast.setAttribute("disabled", "disabled");
   pageBtnNext.setAttribute("disabled", "disabled");
   pageBtnFirst.removeAttribute("disabled");
   pageBtnPrev.removeAttribute("disabled");
@@ -192,11 +191,12 @@ pageBtnFirst.addEventListener("click", () => {
   petsPage.textContent = pageNum;
   deletePets();
   addPets();
-  pageBtnLast2.removeAttribute("disabled");
+  pageBtnLast.removeAttribute("disabled");
   pageBtnNext.removeAttribute("disabled");
   pageBtnFirst.setAttribute("disabled", "disabled");
   pageBtnPrev.setAttribute("disabled", "disabled");
 });
+const petCards = document.querySelector(".pagination");
 let lastPage;
 const getLastPageNum = () => {
   if (pageSize === "decktop") {
@@ -211,6 +211,8 @@ const getLastPageNum = () => {
 };
 getLastPageNum();
 let cardsOnPage = petCount / lastPage;
+// let start = (pageNum - 1) * cardsOnPage;
+// let end = start + cardsOnPage;
 const addPets = () => {
   const mixedArr = mixArr(largePetData);
   if (pageSize === "mobile") {
